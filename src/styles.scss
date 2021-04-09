@@ -1,0 +1,70 @@
+$body-bg:  #111C7B; // overwritten bootstrap variable
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+// hotel-reservations look and feel:
+.btn-primary {
+  background-color: #1525AF ; 
+  padding: 0 2em ; 
+  font-weight:500 ;
+}
+.btn-primary:hover {
+  background-color: #eaae13;
+  border: #eaae13;
+}
+.btn-primary:focus {
+  background-color: #2234d6;
+  
+}
+.btn-primary:not(:disabled):not(.disabled):hover:focus {
+  background-color: #eaae13;
+  border: #eaae13;
+}
+.btn-primary:not(:disabled):not(.disabled):hover:focus:active {
+  background-color: #ffdd6c;
+  border: #ffdd6c;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #ffdd6c;
+  border: #ffdd6c;
+}
+body {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: "Commissioner";
+  src: url("./assets/Commissioner/Commissioner-Regular.ttf");
+}
+@font-face {
+  font-family: "Commissioner-Medium";
+  src: url("./assets/Commissioner/Commissioner-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Commissioner-Light";
+  src: url("./assets/Commissioner/Commissioner-Light.ttf");
+}
+
+@font-face {
+  font-family: "Patua-One";
+  src: url("./assets/Patua_One/PatuaOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Palanquin-Dark";
+  src: url("./assets/Palanquin_dark/PalanquinDark-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Open-Sans-Italic";
+  src: url("./assets/Open_Sans/OpenSans-LightItalic.ttf");
+}
+
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("./assets/Lato2OFL/Lato-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Passion-One";
+  src: url("./assets/Passion_One/PassionOne-Regular.ttf");
+}
