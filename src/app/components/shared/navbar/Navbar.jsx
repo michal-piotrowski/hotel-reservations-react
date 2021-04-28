@@ -6,7 +6,7 @@ import imgMap from '../../../../assets/Map.png';
 import './Navbar.scss';
 import React, { Component } from 'react';
 
-export default class AppNavbar extends Component {
+export default class HrNavbar extends Component {
   render () {
     return(
       <nav class = "navbar navbar-light hr-dark-themed" >

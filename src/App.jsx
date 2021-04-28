@@ -1,52 +1,43 @@
-import locationIcoFilled from './assets/locationIcoFilled_purp.png';
-import dateImg from './assets/date_range_24px_outlined.png';
+
 import 'bootstrap/scss/bootstrap.scss';
 import './App.scss';
-import AppNavbar from './app/components/shared/navbar/Navbar.jsx';
+import HrNavbar from './app/components/shared/navbar/Navbar.jsx';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import HrSlider from './app/components/landing-page/slider/Slider.jsx';
+import HrMap from 'app/components/hotel/hotel-browser/hotel-map/Map.jsx';
+import HrLogin from 'app/components/profile/Login';
+import HrTos from 'app/components/tos/Tos';
+import HrProfile from 'app/components/profile/profile/Profile';
+import HrBook from 'app/components/hotel/hotel-browser/hotel/booking/Booking';
 
 function App() {
   return (
-    <div>
-      <AppNavbar />
-      <div >
-        <div id="sub-wrapper">
-          <div id="sliderForm">
-            <div id="sliderImgWrapper">
-              <div id="sliderImg">
-              </div>
-            </div>
-            <div class="col-md-4 midpageComponent" id="sloganLeft">Begin your journey</div>
-            <div class="col-md-4 midpageComponent" id="formMiddle">
-              <div class="container" id="form-container">
-                <div id="textBanner" class="row ">
-                  <p>Looking for a hotel?</p>
-                </div>
-                <div class="row" id="landing-where">
-                  <img id="landing-where-image" src={locationIcoFilled} alt="GPS" />
-                  <input id="landing-where-input" type="text" placeholder="Your searched location" />
-                </div>
-                <div class="row">
-                  <div id="landing-from-wrapper" class="col-sm-6">
-                    <div id="landing-from" >
-                      <img id="landing-date-from" src={dateImg} alt="DATE" />
-                      <input id="landing-date-from-input" class="form-control" type="text" placeholder="Date from" />
-                    </div>
-                  </div>
-                  <div id="landing-to-wrapper" class="col-sm-6">
-                    <div id="landing-to" >
-                      <img id="landing-date-to" src={dateImg} alt="DATE" />
-                      <input id="landing-date-to-input" class="form-control" type="text" placeholder="Date to" />
-                    </div>
-                  </div>
-                </div>
-                <div class="row justify-content-center" id="search-wrapper">
-                  <button id="search-button" class="btn btn-primary">Search</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 midpageComponent" id="sloganRight">Search locations around the globe using combined data from major hotel searches</div>
-          </div>
-        </div>
+    <HashRouter>
+      <div>
+        <HrNavbar />
+        <Switch>          
+          <Route path="/profile">
+            <HrProfile />
+          </Route>
+          <Route path="/results/:id">
+            <HrBook />
+          </Route>
+          <Route path="/results">
+            <HrMap />
+          </Route>
+          <Route path="/tos">
+            <HrTos />
+          </Route>
+          <Route path="/login">
+            <HrLogin />
+          </Route>
+          <Route path="/map">
+            <HrMap />
+          </Route>
+          <Route path="/">
+            <HrSlider />
+          </Route>
+        </Switch>
         <div id="footer" class="row">
           <div id="footerLinks">
             <p>© Hotel Reservations</p>
@@ -59,7 +50,7 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    </HashRouter>
   );
 }
 
