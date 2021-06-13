@@ -5,18 +5,19 @@ import imgMap from '../../../../assets/Map.png';
 
 import './Navbar.scss';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class HrNavbar extends Component {
   render () {
     return(
-      <nav class = "navbar navbar-light hr-dark-themed" >
-        <div class="navbar-brand">
-          <a class="nav-item" href="#"><img id="nav-logo-img" src={img} alt="HRLOGO"></img></a>
+      <nav className="navbar navbar-light hr-dark-themed" >
+        <div className="navbar-brand">
+          <Link className="nav-item" to="/"><img id="nav-logo-img" src={img} alt="HRLOGO"></img></Link>
         </div>
-        <div class="navbar navbar-toggler">
-          <a class="nav-item" href="#"><img src={imgSignIn} class="nav-img" alt="SIGN IN"></img></a>
-          <a class="nav-item" href="#"><img src={imgInfo}  class="nav-img" alt="INFO"></img></a>
-          <a class="nav-item" href="#"><img src={imgMap} class="nav-img"  alt="MAP"></img></a>
+        <div className="navbar navbar-toggler">
+          <Link className="nav-item" to="/login"><img src={imgSignIn} className="nav-img" alt="SIGN IN"></img></Link>
+          <Link className="nav-item" to="/tos"><img src={imgInfo}  className="nav-img" alt="INFO"></img></Link>
+          <Link className="nav-item" to="/results"><img src={imgMap} className="nav-img"  alt="MAP"></img></Link>
         </div>
       </nav>
       );

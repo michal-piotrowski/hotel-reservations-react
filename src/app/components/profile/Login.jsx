@@ -6,39 +6,39 @@ import infoImg from 'assets/login/information.png';
 export default class HrLogin extends Component {
   render() {
     return (
-      <div class="component-wrapper" id="login-wrapper">
-        <div class="row" id="login-inter-wrapper">
-          <div id="login-spacer-left" class="col-md-4">
+      <div className="component-wrapper" id="login-wrapper">
+        <div className="row" id="login-inter-wrapper">
+          <div id="login-spacer-left" className="col-md-4">
               
           </div>
-          <div class="col-md-4" >
+          <div className="col-md-4" >
             <div id="login-component-wrapper">
-              <div class="container login-component-header">
-                <div class="container login-component-header sign-in">
+              <div className="container login-component-header">
+                <div className="container login-component-header sign-in">
                   <span>Log in</span>
                 </div>
-                <div class="container login-component-header sign-up">
+                <div className="container login-component-header sign-up">
                   <span>Sign up</span>
                 </div>
               </div>
-              <div class="container login-component">
+              <div className="container login-component">
                 <div id="login-form-wrapper">
-                  <label for="email-address" id="email-address-label">E-mail address</label>
+                  <label htmlFor="email-address" id="email-address-label">E-mail address</label>
                 </div>
                 <div id="address-input-wrapper">
                   <input id="email-address-input"/>
                 </div>
-                <label for="password" id="password-label">Password</label>
+                <label htmlFor="password" id="password-label">Password</label>
                 <div id="password-input-wrapper">
                   <input id="password-input"/>
                 </div>
                 <div id="signin-button">
-                  <button class="btn btn-primary">Sign in</button>
+                  <button className="btn btn-primary">Sign in</button>
                 </div>
               </div>
             </div>
           </div>  
-          <div id="login-info" class="col-md-4">
+          <div id="login-info" className="col-md-4">
             <div>
               <div id="info-icon-wrapper">
                 <img id="info-icon" src={infoImg} alt="INFO"/>
