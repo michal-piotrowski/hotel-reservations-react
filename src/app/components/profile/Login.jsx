@@ -43,7 +43,7 @@ export default class HrLogin extends Component {
               <div id="info-icon-wrapper">
                 <img id="info-icon" src={infoImg} alt="INFO"/>
               </div>
-              <span>Creating an account will let you retrieve information about the booking you’ve made with Hotel Reservations. </span>
+              <span>Creating an account will let you save and retrieve information about the bookings you’ve made with Hotel Reservations. </span>
             </div>
           </div>  
         </div>

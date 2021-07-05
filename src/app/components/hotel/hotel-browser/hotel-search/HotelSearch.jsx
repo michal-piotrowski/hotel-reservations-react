@@ -35,6 +35,7 @@ export default props => {
     debouncedQueryMatch(value, this);
   }
   const handleSearch = () => {
+    document.querySelector('#leaflet-map').scrollIntoView();
     dispatch(searchDestinationsCreator(currentSuggestion));
   }
   useEffect(() => {
@@ -52,11 +53,11 @@ export default props => {
         <div className="row">
           <label className="search-input-label" htmlFor="search-input">{HrTool.translate("Searched:")}</label>
           <Suggestions
-            inputStyle={{ border: 'none' }}
+            collection={get_suggestions}
             locationSelectedHandler={handleLocationSelected}
+            inputStyle={{ border: 'none' }}
             inputHandler={queryMatching}
             containerStyle={{ height: '3em', width: '84%', float: 'left', minWidth: '10em' }}
-            collection={get_suggestions}
             placeholder={get_location_form_data && get_location_form_data[formFields.SUGGESTION] && get_location_form_data[formFields.SUGGESTION].display_name} />
         </div>
       </div>

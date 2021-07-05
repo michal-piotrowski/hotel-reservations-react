@@ -6,6 +6,7 @@ import placeholder from "assets/map/placeholder.png";
 import placeIcon from "assets/map/place.png";
 import distanceIcon from 'assets/map/distance-ico-no-bg.png';
 import HrTool from "app/helpers/HrTool";
+import history, { names as routerNames } from 'app/components/router/router';
 
 class HotelSummary extends Component {
 
@@ -43,6 +44,9 @@ class HotelSummary extends Component {
   setSelectedHotel = () => {
     this.props.setSelectedHotel(this.props.arrayPos);
   }
+  goToDetails = (id) => {
+    history.push('/' + routerNames.RESULTS + '/' + id);
+  }
 
   render() {
     const expandedPart = this.props.expanded
@@ -50,7 +54,7 @@ class HotelSummary extends Component {
           <hr/>
           <div id="book-btn-wrapper">
             <button id="book-now-btn" className="btn btn-primary">Book now</button>
-            <button id="book-details-btn" className="btn btn-secondary">Show details</button>
+          <button onClick={() => this.goToDetails(this.props.arrayPos)} id="book-details-btn" className="btn btn-secondary">Show details</button>
           </div>
         </Fragment>)
       : null

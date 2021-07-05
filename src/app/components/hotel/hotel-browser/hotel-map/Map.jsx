@@ -20,12 +20,19 @@ class HrMap extends Component {
   }
 
   addMarker(lat, lon) {
-    L.marker([lat, lon], {icon: HrTool.getDefaultMarker()}).addTo(this.state.layerGroup);
+
+    if (lat && lon) {
+      if (!this.state.layerGroup) {
+        L.layerGroup().addTo(L.map('leaflet-map'));
+      }
+      L.marker([lat, lon], {icon: HrTool.getDefaultMarker()}).addTo(this.state.layerGroup);
+    }
   }
   
   addMarkers() {
     for (let location of this.props.destinations) {
-      this.addMarker(location.latitude, location.longitude);
+      if (location.longitude && location.latitude)
+        this.addMarker(location.latitude, location.longitude);
     }
   }
 
@@ -51,6 +58,7 @@ class HrMap extends Component {
     if (isEmpty(newLocationData) && isEmpty(newLocationData[formFields.SUGGESTION])) {
       lMap.setView([51.505, -0.09], 13);
     } else {
+      document.querySelector('#leaflet-map').scrollIntoView();
       if (newLocationData[formFields.SUGGESTION]) {
         lMap.setView([newLocationData[formFields.SUGGESTION].lat, newLocationData[formFields.SUGGESTION].lon], 13);
       }

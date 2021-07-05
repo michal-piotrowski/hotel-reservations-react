@@ -22,6 +22,7 @@ export const names = {
     PUT_SUGGESTIONS: 'putSuggestions',
     FETCH_SUGGESTIONS: 'fetchSuggestions',
     SEARCH_DESTINATIONS: 'searchDestinations',
+    SET_FETCHING_STATE: 'setFetchingState',
     MERGE_LOCATION_FORM_VALUE: 'mergeLocationFormValue'
   }
 }
@@ -32,6 +33,7 @@ const initialState = {
   locationFormData: {}, //{location: , dateFrom: , dateTo: }
   selectedHotel: {},
   search_text: null,
+  fetchingState: null,
 };
 
 export const slice = createSlice({
@@ -57,6 +59,9 @@ export const slice = createSlice({
     },
     setSelectedHotel(state, action) {
       state.selectedHotel = action.payload;
+    },
+    setFetchingState(state, action) {
+      state.fetchingState = action.payload;
     }
   }
 });
@@ -85,9 +90,11 @@ function parseSuggestion(nominatimLocation) {
 
 export const searchDestinationsCreator = (currentSuggestion) => {
   return dispatch => {
+    dispatch(slice.actions.setFetchingState('fetching'));
     const parsedSuggestion = parseSuggestion(currentSuggestion.display_name);
     return HrAxios.httpGet(URL.rapSearchDestinations + '?query=' + parsedSuggestion)
-    .then(response => {
+      .then(response => {
+      dispatch(slice.actions.setFetchingState('done'))
       if (response.data.suggestions[1].entities.length == 0) {
         dispatch(slice.actions.setFetchedDestinations([{ id: -1, caption: 'No results found' }]));
       } else {

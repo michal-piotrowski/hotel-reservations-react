@@ -6,6 +6,9 @@ import Suggestions from 'app/inputs/inputWithSuggestions/Suggestions.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions, fetchSuggestionsCreator, names as storeNames, formFields, searchDestinationsCreator } from 'app/store/slices.js';
 import history, { names as routerNames } from 'app/components/router/router.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 export default props => {
   let [shouldDisableSearch, setShouldDisableSearch] = useState(null);
@@ -70,11 +73,11 @@ export default props => {
                 <div className="row" id="landing-where">
                   <img id="landing-where-image" src={locationIcoFilled} alt="GPS" />
                   <Suggestions
-                    inputStyle={{ position: 'relative', zIndex: 2 }}
+                    collection={get_suggestions}
                     locationSelectedHandler={handleLocationSelected}
+                    inputStyle={{ position: 'relative', zIndex: 2 }}
                     inputHandler={queryMatching}
                     containerStyle={{ width: 'calc(100% - 2.8em)' }}
-                    collection={get_suggestions}
                     placeholder={'Your searched location'} />
                 </div>
                 <div className="row">
