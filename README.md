@@ -1,4 +1,4 @@
-# HotelReservationsAngular
+# HotelReservationsReact
 
 A **webm** file at the root location of the repository **shows how the application works**.
 
